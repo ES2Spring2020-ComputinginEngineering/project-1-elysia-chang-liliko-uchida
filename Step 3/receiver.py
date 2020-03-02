@@ -16,12 +16,12 @@ mb.display.show(mb.Image.HAPPY, delay=1000, clear=True)
 # Wait for start message before beginning printing
 incoming = ''
 while not incoming == 'start':
-    incoming = radio.receive()
+    incoming = radio.receive(acc_str)
 print('start')
 
 
 while True:
-    incoming = radio.receive() # Read from radio
+    incoming = radio.receive(acc_str) # Read from radio
 
     if incoming is not None: # message was received
         mb.display.show(mb.Image.HEART, delay=100, clear=True, wait=False)
@@ -29,9 +29,7 @@ while True:
         #############################################################
         # FILL IN HERE
 
-    ######################################################
-
-        incoming = radio.receive()
+        incoming = radio.receive(acc_str)
         print(incoming)
         fout = open("incoming.txt", "w")
         fout.write(incoming)
