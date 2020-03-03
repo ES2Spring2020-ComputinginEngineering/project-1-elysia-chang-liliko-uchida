@@ -30,6 +30,10 @@ while not mb.button_a.is_pressed():
     acc_list = [acc_x, acc_y, acc_z]
     acc_str = str(acc_x) + "," + str(acc_y) +"," + str(acc_z)
     radio.send(acc_str)
+    time = microbit.running_time()
+    str(time)
+    time_str = str(time)
+    radio.send(time_str)
 
 
     ######################################################
