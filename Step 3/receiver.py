@@ -33,6 +33,11 @@ while True:
         print(incoming)
         fout = open("incoming.txt", "w")
         fout.write(incoming)
+        incoming1 = radio.recieve(time_str)
+        print(incoming1)
+        fout1 = open("incoming1.txt", "w")
+        fout1.write(incoming1)
+        fout.write(incoming1)
         # Need to parse it and reformat as a tuple for the MU plotter
         #############################################################
 
