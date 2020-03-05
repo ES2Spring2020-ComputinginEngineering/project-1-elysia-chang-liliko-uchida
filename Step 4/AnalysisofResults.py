@@ -55,16 +55,64 @@ fourth_trial = 'eighteen.csv'
 fifth_trial = 'twenty.csv'
 
 # FIRST TRIAL
-def file(first_trial):
-    with open(first_trial) as csvfile:
-        reader = csv.reader(csvfile, delimiter=',')
-        for row in reader: # this changes all to a list - now, change it to an array
-            length = row
-            first_lengthsArray = np.array(length)
-        return first_lengthsArray # last piece of data
+def file1(first_trial):
+    first_lengthsArray = np.loadtxt(first_trial, delimiter=',')
+    return first_lengthsArray
 
-file(first_trial)
-first_lengthsArray = file(first_trial)
+first_lengthsArray = file1(first_trial)
+
+# SECOND TRIAL
+def file2(second_trial):
+    second_lengthsArray = np.loadtxt(second_trial, delimiter=',')
+    return second_lengthsArray
+
+second_lengthsArray = file2(second_trial)
+
+# THIRD TRIAL
+def file3(third_trial):
+    third_lengthsArray = np.loadtxt(third_trial, delimiter=',')
+    return third_lengthsArray
+
+third_lengthsArray = file3(third_trial)
+
+# FOURTH TRIAL
+def file4(fourth_trial):
+    fourth_lengthsArray = np.loadtxt(fourth_trial, delimiter=',')
+    return fourth_lengthsArray
+
+fourth_lengthsArray = file4(fourth_trial)
+
+# FIFTH TRIAL
+def file5(fifth_trial):
+    fifth_lengthsArray = np.loadtxt(fifth_trial, delimiter=',')
+    return fifth_lengthsArray
+
+fifth_lengthsArray = file5(fifth_trial)
+
+
+
+# FIRST TRIAL
+#def file1(first_trial):
+#    first = np.loadtxt(first_trial, delimiter=',')
+#    first_lengthsArray = np.empty((4))
+#    with open(first_trial) as csvfile:
+#        reader = csv.reader(csvfile, delimiter=',')
+#        for row in reader: # this changes all to a list - now, change it to an array
+#            length = row
+#            print(length)
+#            first_lengthsArray = np.append(first_lengthsArray, np.array(length), axis=0)
+#    return first # last piece of data
+
+#file1(first_trial)
+#first_lengthsArray = file1(first_trial)
+
+#x = first_lengthsArray[:,3]
+#y = first_lengthsArray[:,0]
+#first_lengthsArray.plt()
+#plt.title('Twelve!')
+#plt.ylabel('Period (s)')
+#plt.xlabel('Lengths (m)')
+#plt.show()
 
 #def find_tilt_y(first_lengthsArray):
 #    y = first_lengthsArray[1]
@@ -112,53 +160,53 @@ first_lengthsArray = file(first_trial)
 
 
 # SECOND TRIAL
-def file(second_trial):
-    with open(second_trial) as csvfile:
-        reader = csv.reader(csvfile, delimiter=',')
-        for row in reader: # this changes all to a list - now, change it to an array
-            length = row
-            second_lengthsArray = np.array(length)
-        return second_lengthsArray # last piece of data
-
-file(second_trial)
-second_lengthsArray = file(second_trial)
-
-
-# THIRD TRIAL
-def file(third_trial):
-    with open(third_trial) as csvfile:
-        reader = csv.reader(csvfile, delimiter=',')
-        for row in reader: # this changes all to a list - now, change it to an array
-            length = row
-            third_lengthsArray = np.array(length)
-        return third_lengthsArray # last piece of data
-
-file(third_trial)
-third_lengthsArray = file(third_trial)
-
-
-# FOURTH TRIAL
-def file(fourth_trial):
-    with open(fourth_trial) as csvfile:
-        reader = csv.reader(csvfile, delimiter=',')
-        for row in reader: # this changes all to a list - now, change it to an array
-            length = row
-            fourth_lengthsArray = np.array(length)
-        return fourth_lengthsArray # last piece of data
-
-file(fourth_trial)
-fourth_lengthsArray = file(fourth_trial)
-
-
-
-# FIFTH TRIAL
-def file(fifth_trial):
-    with open(fifth_trial) as csvfile:
-        reader = csv.reader(csvfile, delimiter=',')
-        for row in reader: # this changes all to a list - now, change it to an array
-            length = row
-            fifth_lengthsArray = np.array(length)
-        return fifth_lengthsArray # last piece of data
-
-file(fifth_trial)
-fifth_lengthsArray = file(fifth_trial)
+#def file2(second_trial):
+#    with open(second_trial) as csvfile:
+#        reader = csv.reader(csvfile, delimiter=',')
+#        for row in reader: # this changes all to a list - now, change it to an array
+#            length = row
+#            second_lengthsArray = np.array(length)
+#        return second_lengthsArray # last piece of data
+#
+#file2(second_trial)
+#second_lengthsArray = file2(second_trial)
+#
+#
+## THIRD TRIAL
+#def file3(third_trial):
+#    with open(third_trial) as csvfile:
+#        reader = csv.reader(csvfile, delimiter=',')
+#        for row in reader: # this changes all to a list - now, change it to an array
+#            length = row
+#            third_lengthsArray = np.array(length)
+#        return third_lengthsArray # last piece of data
+#
+#file3(third_trial)
+#third_lengthsArray = file3(third_trial)
+#
+#
+## FOURTH TRIAL
+#def file4(fourth_trial):
+#    with open(fourth_trial) as csvfile:
+#        reader = csv.reader(csvfile, delimiter=',')
+#        for row in reader: # this changes all to a list - now, change it to an array
+#            length = row
+#            fourth_lengthsArray = np.array(length)
+#        return fourth_lengthsArray # last piece of data
+#
+#file4(fourth_trial)
+#fourth_lengthsArray = file4(fourth_trial)
+#
+#
+#
+## FIFTH TRIAL
+#def file5(fifth_trial):
+#    with open(fifth_trial) as csvfile:
+#        reader = csv.reader(csvfile, delimiter=',')
+#        for row in reader: # this changes all to a list - now, change it to an array
+#            length = row
+#            fifth_lengthsArray = np.array(length)
+#        return fifth_lengthsArray # last piece of data
+#
+#file5(fifth_trial)
+#fifth_lengthsArray = file5(fifth_trial)
