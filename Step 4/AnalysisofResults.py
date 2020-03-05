@@ -152,13 +152,13 @@ fourth_lengthsArray = file(fourth_trial)
 
 
 # FIFTH TRIAL
-#def file(first_trial):
-#    with open(first_trial) as csvfile:
-#        reader = csv.reader(csvfile, delimiter=',')
-#        for row in reader: # this changes all to a list - now, change it to an array
-#            length = row
-#            first_lengthsArray = np.array(length)
-#        return first_lengthsArray # last piece of data
-#
-#file(first_trial)
-#first_lengthsArray = file(first_trial)
+def file(fifth_trial):
+    with open(fifth_trial) as csvfile:
+        reader = csv.reader(csvfile, delimiter=',')
+        for row in reader: # this changes all to a list - now, change it to an array
+            length = row
+            fifth_lengthsArray = np.array(length)
+        return fifth_lengthsArray # last piece of data
+
+file(fifth_trial)
+fifth_lengthsArray = file(fifth_trial)
