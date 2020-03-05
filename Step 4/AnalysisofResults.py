@@ -58,11 +58,26 @@ def file(first_trial):
         reader = csv.reader(csvfile, delimiter=',')
         for row in reader: # this changes all to a list - now, change it to an array
             length = row
-            lengthsArray = np.array(length)
-        return lengthsArray # last piece of data
+            first_lengthsArray = np.array(length)
+        return first_lengthsArray # last piece of data
 
-file(first_trial) # call the function
-lengthsArray = file(first_trial)
+#file(first_trial) # call the function
+first_lengthsArray = file(first_trial) # properly return variables into functions
+
+accx_first_trial = first_lengthsArray[:,0]
+accx_first_trial_array = np.array(accx_first_trial)
+time_first_trial = first_lengthsArray[:,3]
+time_first_trial_array = np.array(time_first_trial)
+
+print(time_first_trial_array)
+
+#plt.plot(accx_first_trial_array, time_first_trial_array)
+
+#def new_array(trial):
+#    newArray = trial*2
+#    return newArray
+#
+#print(new_array(first_trial))
 
 #def new_array(lengthsArray):
 #    y = acc_x
