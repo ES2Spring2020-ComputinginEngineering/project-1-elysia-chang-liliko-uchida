@@ -37,4 +37,4 @@ while True:
         # Need to parse it and reformat as a tuple for the MU plotter
         #############################################################
 
-        mb.sleep(100)
+        mb.sleep(5)
