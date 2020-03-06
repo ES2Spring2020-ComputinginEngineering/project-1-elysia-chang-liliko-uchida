@@ -114,17 +114,29 @@ fifth_lengthsArray = file5(fifth_trial)
 #plt.xlabel('Lengths (m)')
 #plt.show()
 
-#def find_tilt_y(first_lengthsArray):
-#    y = first_lengthsArray[1]
-#    x = math.sqrt(first_lengthsArray[0]**2 + first_lengthsArray[2]**2)
-#    tilt_y = math.atan2(y, x)
-#    return tilt_y
-#
-#def find_tilt_z(first_lengthsArray):
-#    y = math.sqrt(first_lengthsArray[0]**2 + first_lengthsArray[1]**2)
-#    x = first_lengthsArray[2]
-#    tilt_z = math.atan2(y, x)
-#    return tilt_z
+def find_tilt_x(first_lengthsArray):
+    y = first_lengthsArray[:,0]
+    x = np.sqrt(first_lengthsArray[:,1]**2 + first_lengthsArray[:,2]**2)
+    tilt_x = np.arctan2(y, x)
+    return tilt_x
+
+tilt_x = find_tilt_x(first_lengthsArray)
+
+def find_tilt_y(first_lengthsArray):
+    y = first_lengthsArray[:,1]
+    x = np.sqrt(first_lengthsArray[:,0]**2 + first_lengthsArray[:,2]**2)
+    tilt_y = np.arctan2(y, x)
+    return tilt_y
+
+tilt_y = find_tilt_y(first_lengthsArray)
+
+def find_tilt_z(first_lengthsArray):
+    y = np.sqrt(first_lengthsArray[:,0]**2 + first_lengthsArray[:,1]**2)
+    x = first_lengthsArray[:,2]
+    tilt_z = np.arctan2(y, x)
+    return tilt_z
+
+tilt_z = find_tilt_z(first_lengthsArray)
 
 #def new_array(first_lengthsArray):
     #time = first_lengthsArray[3]
