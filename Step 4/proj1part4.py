@@ -12,36 +12,6 @@ Created on Wed Mar  4 12:23:06 2020
 @author: elysiachang
 """
 
-#import os
-#import numpy as np
-#import matplotlib.pyplot as plt
-#
-#path = "/Users/elysiachang/Documents/GitHub/project-1-elysia-chang-liliko-uchida/Step 3"
-#
-#
-##MAIN SCRIPT
-#lengthsList = [0.3048,0.3556,0.4064,0.4572,0.508] #in meters to stay 
-#                                                  #consistent with metric units.
-#                                                  # Lengths in inches are 12, 14, 16, 18, 20
-#lengthsArray = np.array(lengthsList)
-#T = 2.0045*(lengthsArray**0.5)+0.0077             #Based on the eq'n from reading. 
-#                                                  #Period is in seconds.
-#
-#plt.plot(lengthsArray, T)
-#plt.ylabel('Period (s)')
-#plt.xlabel('Lengths (m)')
-#
-#os.chdir(path)
-#print(os.getcwd())
-#
-#fin = open("twelve.csv", "r", encoding="utf8") # opens the csv file
-#
-## find something that reads in CSV
-## split lines
-#
-#fin.close() # closes the original text file
-#
-#
 #####################################################################################################
 #IMPORT STATEMENTS
 import csv
@@ -173,7 +143,6 @@ plt.ylabel('Z acceleration')
 plt.show()
 
 ###############################################################################################
-#CALCULATIONS
 #CALCULATE/GRAPH THETA
 #Trial 1
 def find_tilt_x(first_trial_array):
@@ -207,6 +176,7 @@ plt.title('z tilt (theta) vs. time')
 plt.xlabel('Time')
 plt.ylabel('theta')
 
+###############################################################################################
 #CALCULATING THE PERIOD
 x = tilt_z
 peaks, _ = find_peaks(x) #returns the indices in the tilt_z array that correspond w. peaks
