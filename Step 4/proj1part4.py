@@ -48,7 +48,12 @@ import csv
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-import math
+import scipy
+from scipy.misc import electrocardiogram
+from scipy.signal import find_peaks
+
+
+
 
 ###############################################################################################
 #GETTING CSV FILES
@@ -73,6 +78,8 @@ second_trial_array = np.genfromtxt('fourteen.csv',delimiter=',')
 third_trial_array = np.genfromtxt('sixteen.csv',delimiter=',')
 fourth_trial_array = np.genfromtxt('eighteen.csv',delimiter=',')
 fifth_trial_array = np.genfromtxt('twenty.csv',delimiter=',')
+
+
 
 
 
@@ -103,7 +110,7 @@ plt.show()
 x2 = second_trial_array[:,3]/1000 
 y2 = second_trial_array[:,0]
 plt.plot(x2,y2,".-")
-plt.title('Trial 2')
+plt.title('Trial 2 w/ X Acceleration')
 plt.xlabel('Time')
 plt.ylabel('x acceleration')
 plt.show()
@@ -120,7 +127,7 @@ plt.show()
 x3 = third_trial_array[:,3]/1000 
 y3 = third_trial_array[:,0]
 plt.plot(x3,y3,".-")
-plt.title('Trial 3')
+plt.title('Trial 3 w/ X Acceleration')
 plt.xlabel('Time')
 plt.ylabel('x acceleration')
 plt.show()
@@ -137,7 +144,7 @@ plt.show()
 x4 = fourth_trial_array[:,3]/1000 
 y4 = fourth_trial_array[:,0]
 plt.plot(x4,y4,".-")
-plt.title('Trial 4')
+plt.title('Trial 4 w/ X Acceleration')
 plt.xlabel('Time')
 plt.ylabel('x acceleration')
 plt.show()
@@ -153,7 +160,7 @@ plt.show()
 x5 = fifth_trial_array[:,3]/1000 
 y5 = fifth_trial_array[:,0]
 plt.plot(x5,y5,".-")
-plt.title('Trial 5')
+plt.title('Trial 5 w/ X Acceleration')
 plt.xlabel('Time')
 plt.ylabel('x acceleration')
 plt.show()
@@ -167,21 +174,67 @@ plt.show()
 
 ###############################################################################################
 #CALCULATIONS
-#CALCULATE THETA
+#CALCULATE/GRAPH THETA
 #Trial 1
-f = first_trial_array[:,2]
-zacc1_list = f.tolist() #Converts the z acceleration column in trial 1
-#data to a list
-zacc1_array = np.array(zacc1_list) #Converts just the z accelerations for trial 1 to a single row array.
-f1 = first_trial_array[:,0]
-xacc1_list = f1.tolist() 
-xacc1_array = np.array(xacc1_list) #Now we have two, single row arrays (one for x acceleration, one for 
+def find_tilt_x(first_trial_array):
+    y = first_trial_array[:,0]
+    x = np.sqrt(first_trial_array[:,1]**2 + first_trial_array[:,2]**2)
+    tilt_x = np.arctan2(y, x)
+    return tilt_x
+
+tilt_x = find_tilt_x(first_trial_array)
+
+def find_tilt_y(first_trial_array):
+    y = first_trial_array[:,1]
+    x = np.sqrt(first_trial_array[:,0]**2 + first_trial_array[:,2]**2)
+    tilt_y = np.arctan2(y, x)
+    return tilt_y
+
+
+def find_tilt_z(first_trial_array):
+    y = np.sqrt(first_trial_array[:,0]**2 + first_trial_array[:,1]**2)
+    x = first_trial_array[:,2]
+    tilt_z = np.arctan2(y, x)
+    return tilt_z
+
+tilt_x = find_tilt_x(first_trial_array)
+tilt_y = find_tilt_y(first_trial_array)
+tilt_z = find_tilt_z(first_trial_array)
+
+#plt.plot(first_trial_array[:,3], tilt_x)
+plt.plot(first_trial_array[:,3], tilt_z)
+plt.title('z tilt (theta) vs. time')
+plt.xlabel('Time')
+plt.ylabel('theta')
+
+#CALCULATING THE PERIOD
+x = tilt_z
+peaks, _ = find_peaks(x)
+
+
+#f = first_trial_array[:,2]
+#zacc1_list = f.tolist() #Converts the z acceleration column in trial 1
+##data to a list
+#zacc1_array = np.array(zacc1_list) #Converts just the z accelerations for trial 1 to a single row array.
+#f1 = first_trial_array[:,0]
+#xacc1_list = f1.tolist() 
+#xacc1_array = np.array(xacc1_list) #Now we have two, single row arrays (one for x acceleration, one for 
+#
+#zacc11_array = zacc1_array**2
+#xacc11_array = xacc1_array**2
+#diff_array = zacc11_array - xacc11_array #up to here works
+#diff_array_abs = 
+#sqrt_array = np.sqrt(diff_array)
+
+
+
+
 #z acceleration) which we can perform calculations on.
-sqrt = (math.sqrt((zacc1_array**2)+(xacc1_array**2)))
-sqrt_array = np.array(sqrt)
-sin_inverse = sqrt_array/zacc1_array
-sin_inverse_array = np.array(sin_inverse)
-theta = math.asin(sin_inverse_array)
+#sqrt = (math.sqrt((zacc1_array**2)+(xacc1_array**2)))
+#sqrt_array = np.array(sqrt)
+#sin_inverse = sqrt_array/zacc1_array
+#sin_inverse_array = np.array(sin_inverse)
+#theta = math.asin(sin_inverse_array)
 
 #CALCULATE PERIOD 
 #Trial 1
