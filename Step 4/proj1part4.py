@@ -209,104 +209,15 @@ plt.ylabel('theta')
 
 #CALCULATING THE PERIOD
 x = tilt_z
-peaks, _ = find_peaks(x)
-
-
-#f = first_trial_array[:,2]
-#zacc1_list = f.tolist() #Converts the z acceleration column in trial 1
-##data to a list
-#zacc1_array = np.array(zacc1_list) #Converts just the z accelerations for trial 1 to a single row array.
-#f1 = first_trial_array[:,0]
-#xacc1_list = f1.tolist() 
-#xacc1_array = np.array(xacc1_list) #Now we have two, single row arrays (one for x acceleration, one for 
-#
-#zacc11_array = zacc1_array**2
-#xacc11_array = xacc1_array**2
-#diff_array = zacc11_array - xacc11_array #up to here works
-#diff_array_abs = 
-#sqrt_array = np.sqrt(diff_array)
-
-
-
-
-#z acceleration) which we can perform calculations on.
-#sqrt = (math.sqrt((zacc1_array**2)+(xacc1_array**2)))
-#sqrt_array = np.array(sqrt)
-#sin_inverse = sqrt_array/zacc1_array
-#sin_inverse_array = np.array(sin_inverse)
-#theta = math.asin(sin_inverse_array)
-
-#CALCULATE PERIOD 
-#Trial 1
-#a = first_trial_array[:,0]
-#accx1 = a.tolist()
-#for i in accx1:
-#    if accx1[i-1]>accx1[i]<accx1[i+1]:
-#        peak = accx1[i]
-#        time = first_trial_array[i,3]
-#        print (time)
-#        
-        
-###############################################################################################
-
-        
-
-
-
-
-
-
-
-
-
-#def find_tilt_y(first_lengthsArray):
-#    y = first_lengthsArray[1]
-#    x = math.sqrt(first_lengthsArray[0]**2 + first_lengthsArray[2]**2)
-#    tilt_y = math.atan2(y, x)
-#    return tilt_y
-#
-#def find_tilt_z(first_lengthsArray):
-#    y = math.sqrt(first_lengthsArray[0]**2 + first_lengthsArray[1]**2)
-#    x = first_lengthsArray[2]
-#    tilt_z = math.atan2(y, x)
-#    return tilt_z
-
-#def new_array(first_lengthsArray):
-    #time = first_lengthsArray[3]
-#    y = first_lengthsArray[:,0]
-#    x = math.sqrt((first_lengthsArray[1])**2 + (first_lengthsArray[2])**2)
-#    tilt_x = math.atan2(y, x)
-#    return tilt_x
-#
-#new_array(first_lengthsArray)
-
-#file(first_trial) # call the function
-#first_lengthsArray = file(first_trial) # properly return variables into functions
-
-#accx_first_trial = first_lengthsArray[:,0]
-#accx_first_trial_array = np.array(accx_first_trial)
-#time_first_trial = first_lengthsArray[:,3]
-#time_first_trial_array = np.array(time_first_trial)
-#
-#
-#plt.plot(accx_first_trial_array, time_first_trial_array)
-
-#def new_array(trial):
-#    newArray = trial*2
-#    return newArray
-#
-#print(new_array(first_trial))
-
-#def new_array(lengthsArray):
-#    y = acc_x
-#    x = math.sqrt(acc_y**2 + acc_z**2)
-#    tilt_x = math.atan2(y, x)
-
-
-
-
-
-
-
+peaks, _ = find_peaks(x) #returns the indices in the tilt_z array that correspond w. peaks
+a=first_trial_array[:,3] 
+times = a.tolist() #converts the times in trial 1 to its own list.
+times_of_peaks=list()
+for i in peaks:
+    time = times[i]
+    times_of_peaks.append(time)
+    
+    
+    
 
 
