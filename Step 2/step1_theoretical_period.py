@@ -22,18 +22,15 @@ plt.ylabel('Period (s)')
 plt.xlabel('Lengths (m)')
 
 
-#PART 4: 
-df = pd.read_excel(/Users/lilikouchida/Desktop/school/ES2/project-1-elysia-chang-liliko-uchida/Step 3/twelve.csv)
-df.as_matrix()
+#LIMITS OF THIS MODEL/ASSUMPTIONS BEING MADE: WHY WOULD A MODEL IN THE "REAL" WORLD NEVER
+#BEHAVE EXACTLY ACCORDING TO THIS EQUATION? 
 
-df = pd.read_excel(/Users/lilikouchida/Desktop/school/ES2/project-1-elysia-chang-liliko-uchida/Step 3/fourteen.csv)
-df.as_matrix()
+#--- Assumptions -----
+#1. The pendulum is massless.
+#2. There is no air resistence. 
+#3. The pivot point of the pendulum is frictionless.
 
-df = pd.read_excel(/Users/lilikouchida/Desktop/school/ES2/project-1-elysia-chang-liliko-uchida/Step 3/sixteen.csv)
-df.as_matrix()
-
-df = pd.read_excel(/Users/lilikouchida/Desktop/school/ES2/project-1-elysia-chang-liliko-uchida/Step 3/eighteen.csv)
-df.as_matrix()
-
-df = pd.read_excel(/Users/lilikouchida/Desktop/school/ES2/project-1-elysia-chang-liliko-uchida/Step 3/twenty.csv)
-df.as_matrix()
+#In real life, it is impossible to create an absolutely frictionless pivot point, as well as 
+#create a massless pendulum. These assumptions create plenty of uncertainty in this pendulum
+#model built with LEGO because the pivot used is only a plastic knob which, while rotates 
+#smoothly, is not frictionless. The pendulum also has mass because it is built from LEGO.
