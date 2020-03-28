@@ -38,7 +38,7 @@ omega0 = np.radians(0.0)
 omega = np.sqrt(g/l) 
 theta = [theta0*cos(omega*t) for t in time] 
 alpha = [-(theta0)*(omega**2)*cos(omega*t) for t in time]
-omega1 = [(theta0*cos(omega*t))/time for t in time]
+omega1 = [-(omega*theta0*cos(omega*t)) for t in time]
 plt.plot(time, theta) #blue line
 plt.plot(time, alpha) #orange line
 plt.title('Time vs. Theta (blue)+Alpha (orange)')
