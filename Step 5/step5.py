@@ -12,38 +12,69 @@ from numpy import cos
 from scipy.signal import find_peaks
 
 
+#********************************************
 
 #CONSTANTS/GIVENS
-g = 9.81 #defines the constant g
-time = np.arange(0,15,0.025) #creates a new array called time which includes all values
-#between 0 and 15 seconds by 0.025.
+#Defines constants which will be used in calculations.
+g = 9.81 
+time = np.arange(0,15,0.025) 
+l = 1
+
+#********************************************
 
 #INITIAL CONDITIONS
-initial_angle = 45
+#Defines state values. #Omega in this case is angular frequency NOT angular velocity
+initial_angle = 10
 theta0 = np.radians(initial_angle)
-omega0 = np.radians(0.0) #initial acceleration
+omega0 = np.radians(0.0) 
 
-def equation(l):
-    omega = np.sqrt(g/l) #in UCM and SHM, the magnitude of omega is constant
-    theta = [theta0*cos(omega*t) for t in time] 
-    alpha = [-(theta0)*(omega**2)*cos(omega*t) for t in time]
-    plt.plot(time, theta) #blue line
-    plt.plot(time, alpha) #orange line
-    plt.title('Time vs. Theta (blue)+Alpha (orange)')
-    plt.show()
+#********************************************
 
-equation(3)
+#PLOTTING VALUES
 
+#Equations for omega and theta shown in calculations notes.
+#omega = angular frequency
+#omega1 = instantaneous angular velocity
+omega = np.sqrt(g/l) 
+theta = [theta0*cos(omega*t) for t in time] 
+alpha = [-(theta0)*(omega**2)*cos(omega*t) for t in time]
+omega1 = [-(omega*theta0*cos(omega*t)) for t in time]
+plt.plot(time, theta) #blue line
+plt.plot(time, alpha) #orange line
+plt.title('Time vs. Theta (blue)+Alpha (orange)')
+plt.show()
+
+plt.plot(time, omega1)
+plt.show()
+#********************************************
+
+#CALCULATING THE PERIOD
+
+#returns an array of indices at which maximum values for theta occur.
 s = theta
 peaks, _ = find_peaks(s)
 np.diff(peaks)
 
-time_between_peaks = [time[i] for i in peaks] #Gives the times at wich the peaks occur
+#Gives the times at which the peaks occur
+time_between_peaks = [time[i] for i in peaks] 
 
+#creates a list which holds the values of delta t between each peak.
+#then pops the first element off of the list because the value is negative
+#thus an outlier because the last time was subtracted from the first time
+#which is unwanted.
+time_interval_list = []
 for i in range(len(time_between_peaks)):
-    time_interval_array = []
     time_interval = time_between_peaks[i]-time_between_peaks[i-1]
-    time_interval_array.apend[time_interval]
+    time_interval_list.append(time_interval) 
+time_interval_list.pop(0)
+sum = 0
+for i in range(len(time_interval_list)):
+    sum = sum + time_interval_list[i]
+average_period = sum/(len(time_interval_list))
+    
+
+
+
     
     
   
