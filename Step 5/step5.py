@@ -17,7 +17,7 @@ from scipy.signal import find_peaks
 #CONSTANTS/GIVENS
 #Defines constants which will be used in calculations.
 g = 9.81 
-time = np.arange(0,15,0.025) 
+time = np.arange(0,50,0.025) 
 l = 1
 
 #********************************************
