@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import scipy.signal as sig
 import scipy.constants as cons
 
-path = "/Users/elysiachang/Documents/GitHub/project-1-elysia-chang-liliko-uchida/Step 3"
+path = "/Users/lilikouchida/Desktop/school/ES2/project-1-elysia-chang-liliko-uchida/Step 3"
 
 os.chdir(path)
 print(os.getcwd())
@@ -21,7 +21,7 @@ print(os.getcwd())
 first_trial = 'twelve.csv'
 second_trial = 'fourteen.csv'
 third_trial = 'sixteen.csv'
-fourth_trial = 'eighteen.csv'
+fourth_trial = 'eighteen.csv' 
 #fifth_trial = 'twenty.csv'
 
 # *******************************
@@ -146,7 +146,65 @@ plt.xlabel('Time (s)')
 plt.tight_layout()
 plt.show()
 
-# Trial 5 - 20 Inches
+
+# *******************************
+#CALCULATING THETA
+#The following 4 chunks of code grab the indices of where the peaks of theta are in 
+#each trial. This part was done by ourselves.
+x = theta12
+peaks12, _ = sig.find_peaks(x)
+np.diff(peaks12)
+plt.scatter(first_trial_array[:,3], x)
+plt.xlabel('time')
+plt.ylabel('peaks12')
+plt.title('peaks12 vs. time')
+plt.show()
+#plt.plot(x)
+#plt.plot(peaks, x[peaks], "x")
+#plt.show()
+
+y = theta14
+peaks14, _ = sig.find_peaks(y)
+np.diff(peaks14)
+plt.scatter(second_trial_array[:,3], y)
+plt.xlabel('time')
+plt.ylabel('peaks14')
+plt.title('peaks14 vs. time')
+plt.show()
+
+#plt.plot(x)
+#plt.plot(peaks, x[peaks], "x")
+#plt.show()
+
+z = theta16
+peaks16, _ = sig.find_peaks(z)
+np.diff(peaks16)
+plt.scatter(third_trial_array[:,3], z)
+plt.xlabel('time')
+plt.ylabel('peaks16')
+plt.title('peaks16 vs. time')
+plt.show()
+
+#plt.plot(x)
+#plt.plot(peaks, x[peaks], "x")
+#plt.show()
+
+s = theta18
+peaks18, _ = sig.find_peaks(s)
+np.diff(peaks18)
+plt.scatter(fourth_trial_array[:,3], s)
+plt.xlabel('time')
+plt.ylabel('peaks18')
+plt.title('peaks18 vs. time')
+plt.show()
+
+
+#plt.plot(x)
+#plt.plot(peaks, x[peaks], "x")
+#plt.show()
+
+
+#Trial 5 - 20 Inches
 #fig, (ax1, ax2, ax3, ax4) = plt.subplots(4, figsize=[10,8],sharex=True)
 #ax1.plot(fifth_trial_array[:,3], fifth_trial_array[:,0], "#9467bd")
 #ax1.set_title('X Accel vs Time, Length 20 Inches')
