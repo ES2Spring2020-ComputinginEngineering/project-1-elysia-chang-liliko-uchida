@@ -17,8 +17,8 @@ from scipy.signal import find_peaks
 #CONSTANTS/GIVENS
 #Defines constants which will be used in calculations.
 g = 9.81 
-time = np.arange(0,50,0.025) 
-l = 1
+time = np.arange(0,10,0.025) 
+l = .508
 
 #********************************************
 
@@ -45,6 +45,7 @@ plt.title('Time vs. Theta (blue)+Alpha (orange)')
 plt.show()
 
 plt.plot(time, omega1)
+plt.title('Omega vs. Theta')
 plt.show()
 #********************************************
 
