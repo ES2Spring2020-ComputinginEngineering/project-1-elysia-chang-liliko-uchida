@@ -30,7 +30,6 @@ fifth_trial = 'twenty.csv'
 # FUNCTIONS
 # Creating a script that can parse in and read data files
 # Below are the respective functions that turns each line into a row in an array
-
 # We did this part by ourselves
 first_trial_array = np.genfromtxt(first_trial, delimiter=',')
 second_trial_array = np.genfromtxt(second_trial, delimiter=',')
