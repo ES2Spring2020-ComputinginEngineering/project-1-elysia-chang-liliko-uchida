@@ -43,7 +43,6 @@ first_trial_array = first_trial_array[500:1300,:]
 second_trial_array = second_trial_array[500:1300,:]
 third_trial_array = third_trial_array[500:1300,:]
 fourth_trial_array = fourth_trial_array[500:1300,:]
-#fifth_trial_array = fifth_trial_array[500:1300,:]
 
 # Calculate accelerations in G units from milliG (and time from milliseconds to seconds)
 # We did this part by ourselves
@@ -95,6 +94,7 @@ plt.tight_layout()
 plt.show()
 
 # Trial 2 - 14 Inches
+# We did the acceleration part by ourselves and then checked with Jenn's starter code on the theta part
 fig, (ax1, ax2, ax3, ax4) = plt.subplots(4, figsize=[10,8],sharex=True)
 ax1.plot(second_trial_array[:,3][0:-12], second_trial_array[:,0][0:-12], "#9467bd")
 ax1.set_title('X Accel vs Time, Length 14 Inches')
@@ -113,6 +113,7 @@ plt.tight_layout()
 plt.show()
 
 # Trial 3 - 16 Inches
+# We did the acceleration part by ourselves and then checked with Jenn's starter code on the theta part
 fig, (ax1, ax2, ax3, ax4) = plt.subplots(4, figsize=[10,8],sharex=True)
 ax1.plot(third_trial_array[:,3][0:-23], third_trial_array[:,0][0:-23], "#9467bd") # chop off
 ax1.set_title('X Accel vs Time, Length 16 Inches')
@@ -131,6 +132,7 @@ plt.tight_layout()
 plt.show()
 
 # Trial 4 - 18 Inches
+# We did the acceleration part by ourselves and then checked with Jenn's starter code on the theta part
 fig, (ax1, ax2, ax3, ax4) = plt.subplots(4, figsize=[10,8],sharex=True)
 ax1.plot(fourth_trial_array[:,3][0:-12], fourth_trial_array[:,0][0:-12], "#9467bd")
 ax1.set_title('X Accel vs Time, Length 18 Inches')
@@ -149,6 +151,7 @@ plt.tight_layout()
 plt.show()
 
 # Trial 5 - 20 Inches
+# We did the acceleration part by ourselves and then checked with Jenn's starter code on the theta part
 fig, (ax1, ax2, ax3, ax4) = plt.subplots(4, figsize=[10,8],sharex=True)
 ax1.plot(fifth_trial_array[:,3][0:-5], fifth_trial_array[:,0][0:-5], "#9467bd")
 ax1.set_title('X Accel vs Time, Length 20 Inches')
@@ -166,9 +169,13 @@ plt.xlabel('Time (s)')
 plt.tight_layout()
 plt.show()
 
+# *******************************
+
 # Period Calculations
 
 # Trial 1 - 12 Inches
+# Graphing the peaks of the sine waves for trial 1 using the original data
+# We used "distance=30" to help detect and account for only the peaks that we wanted to include
 time1 = first_trial_array[:,3][0:-20]
 y1 = theta12[:][0:-20]
 y_pks1, _ = sig.find_peaks(y1, distance=30)
@@ -178,6 +185,10 @@ plt.xlabel('Time (s)')
 plt.ylabel('Theta (rad)')
 plt.show()
 
+# find_period1 takes zero parameters
+# it inputs the data from graphing the peaks above as well as a for loop to find the time
+# differences between each of the peaks and then appends it to the interval to take the mean
+# it returns the average period and saves it as a variable named period1
 def find_period1():
     time1 = first_trial_array[:,3][0:-20]
     y1 = theta12[:][0:-20]
@@ -193,6 +204,8 @@ def find_period1():
 period1 = find_period1()
 
 # Trial 2 - 14 Inches
+# Graphing the peaks of the sine waves for trial 2 using the median filtered data
+# We used "distance=30" to help detect and account for only the peaks that we wanted to include
 time2 = second_trial_array[:,3][0:-12]
 y2 = theta14[:][0:-12]
 y_filt2 = sig.medfilt(y2)
@@ -203,6 +216,10 @@ plt.xlabel('Time (s)')
 plt.ylabel('Theta (rad)')
 plt.show()
 
+# find_period2 takes zero parameters
+# it inputs the data from graphing the peaks above as well as a for loop to find the time
+# differences between each of the peaks and then appends it to the interval to take the mean
+# it returns the average period and saves it as a variable named period2
 def find_period2():
     time2 = second_trial_array[:,3][0:-12]
     y2 = theta14[:][0:-12]
@@ -219,6 +236,8 @@ def find_period2():
 period2 = find_period2()
 
 # Trial 3 - 16 Inches
+# Graphing the peaks of the sine waves for trial 3 using the original data
+# We used "distance=40" to help detect and account for only the peaks that we wanted to include
 time3 = third_trial_array[:,3][0:-22]
 y3 = theta16[:][0:-22]
 y_pks3, _ = sig.find_peaks(y3, distance=40)
@@ -228,6 +247,10 @@ plt.xlabel('Time (s)')
 plt.ylabel('Theta (rad)')
 plt.show()
 
+# find_period3 takes zero parameters
+# it inputs the data from graphing the peaks above as well as a for loop to find the time
+# differences between each of the peaks and then appends it to the interval to take the mean
+# it returns the average period and saves it as a variable named period3
 def find_period3():
     time3 = third_trial_array[:,3][0:-22]
     y3 = theta16[:][0:-22]
@@ -243,6 +266,8 @@ def find_period3():
 period3 = find_period3()
 
 # Trial 4 - 18 Inches
+# Graphing the peaks of the sine waves for trial 4 using the median filtered data
+# We used "distance=30" to help detect and account for only the peaks that we wanted to include
 time4 = fourth_trial_array[:,3][0:-12]
 y4 = theta18[:][0:-12]
 y_filt4 = sig.medfilt(y4)
@@ -253,6 +278,10 @@ plt.xlabel('Time (s)')
 plt.ylabel('Theta (rad)')
 plt.show()
 
+# find_period4 takes zero parameters
+# it inputs the data from graphing the peaks above as well as a for loop to find the time
+# differences between each of the peaks and then appends it to the interval to take the mean
+# it returns the average period and saves it as a variable named period4
 def find_period4():
     time4 = fourth_trial_array[:,3][0:-12]
     y4 = theta18[:][0:-12]
@@ -269,6 +298,7 @@ def find_period4():
 period4 = find_period4()
 
 # Trial 5 - 20 Inches
+# Graphing the peaks of the sine waves for trial 4 using the original data
 time5 = fifth_trial_array[:,3][0:-5]
 y5 = theta20[:][0:-5]
 y_pks5, _ = sig.find_peaks(y5)
@@ -278,6 +308,10 @@ plt.xlabel('Time (s)')
 plt.ylabel('Theta (rad)')
 plt.show()
 
+# find_period5 takes zero parameters
+# it inputs the data from graphing the peaks above as well as a for loop to find the time
+# differences between each of the peaks and then appends it to the interval to take the mean
+# it returns the average period and saves it as a variable named period5
 def find_period5():
     time5 = fifth_trial_array[:,3][0:-5]
     y5 = theta20[:][0:-5]
